@@ -1,0 +1,19 @@
+{
+  "name": "serverless-cloudform",
+  "version": "0.0.1",
+  "description": "Serverless plugin to make cloudform template with cloudform",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gcchaan/serverless-cloudform.git"
+  },
+  "keywords": [
+    "cloudform",
+    "serverless"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "ts-node": "^5.0.1"
+  }
+}
