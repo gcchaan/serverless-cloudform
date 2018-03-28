@@ -1,0 +1,8 @@
+service: sample-serverless
+provider:
+  name: aws
+plugins:
+  - serverless-cloudform
+custom:
+  cloudform:
+    resources: 'resources/my.ts'

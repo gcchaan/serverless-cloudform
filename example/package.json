@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "devDependencies": {
+    "cloudform": "^1.0.4",
+    "serverless": "^1.26.1",
+    "serverless-cloudform": "^0.0.1"
+  }
+}
