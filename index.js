@@ -12,13 +12,10 @@ class ServerlessPlugin {
   }
   mergeRsources() {
     const templatePath = this.serverless.service.custom.cloudform.resources;
-    const data = child_process_1.execSync(`$(find node_modules -type l -name ts-node) -e "import t from '${path.resolve(templatePath)}'; console.log(JSON.stringify(t))"`, { encoding: 'utf-8' });
+    const data = child_process_1.execSync(`$(npm bin)/ts-node -e "import t from '${path.resolve(templatePath)}'; console.log(JSON.stringify(t))"`, { encoding: 'utf-8' });
     const res = JSON.parse(data);
     if (!this.serverless.service.resources) {
-      this.serverless.service.resources = {};
-    }
-    if (!this.serverless.service.resources.Resources) {
-      this.serverless.service.resources.Resources = {};
+      this.serverless.service.resources = { Resources: {} };
     }
     Object.assign(this.serverless.service.resources.Resources, res);
   }
