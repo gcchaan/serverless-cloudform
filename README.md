@@ -25,7 +25,7 @@ plugins:
 
 custom:
   cloudform:
-    resources: 'path/to/resources' # include path/to/template.ts
+    resources: 'path/to/resources' # include path/to/resources.ts
 ```
 
 ### Template
