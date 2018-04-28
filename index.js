@@ -8,6 +8,8 @@ class ServerlessPlugin {
     this.serverless = serverless;
     this.hooks = {
       'package:compileFunctions': () => BbPromise.bind(this).then(this.mergeRsources),
+      'before:dynamodb:start:startHandler': () => BbPromise.bind(this).then(this.mergeRsources),
+      'before:offline:start:init': () => BbPromise.bind(this).then(this.mergeRsources),
     };
   }
   mergeRsources() {
