@@ -17,7 +17,9 @@ class ServerlessPlugin {
     const data = child_process_1.execSync(`$(npm bin)/ts-node -e "import t from '${path.resolve(templatePath)}'; console.log(JSON.stringify(t))"`, { encoding: 'utf-8' });
     const res = JSON.parse(data);
     if (!this.serverless.service.resources) {
-      this.serverless.service.resources = { Resources: {} };
+      this.serverless.service.resources = {Resources: {}};
+    } else if (!this.serverless.service.resources.Resources) {
+      this.serverless.service.resources.Resources = {};
     }
     Object.assign(this.serverless.service.resources.Resources, res);
   }
