@@ -5,4 +5,4 @@ plugins:
   - serverless-cloudform
 custom:
   cloudform:
-    resources: 'resources/my.ts'
+    resources: 'resources/my'
