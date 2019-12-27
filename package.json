@@ -1,6 +1,6 @@
 {
   "name": "serverless-cloudform",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Serverless plugin to make cloudformation template with cloudform",
   "main": "index.js",
   "repository": {

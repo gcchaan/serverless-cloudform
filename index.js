@@ -7,10 +7,15 @@ class ServerlessPlugin {
   constructor(serverless, options) {
     this.serverless = serverless;
     this.hooks = {
-      'package:compileFunctions': () => BbPromise.bind(this).then(this.mergeRsources),
       'before:dynamodb:start:startHandler': () => BbPromise.bind(this).then(this.mergeRsources),
       'before:offline:start:init': () => BbPromise.bind(this).then(this.mergeRsources),
     };
+    const packageCompileFunctions = {
+        'package:compileFunctions': () => BbPromise.bind(this).then(this.mergeRsources),
+    }
+    if (!serverless.service.custom.cloudform.ignorePackage) {
+        this.hooks = { ...this.hooks, ...packageCompileFunctions }
+    }
   }
   mergeRsources() {
     const templatePath = this.serverless.service.custom.cloudform.resources;
